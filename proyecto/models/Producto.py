@@ -1,3 +1,4 @@
+# Aplicar validacion de codigo
 class Producto:
     # constructor
     def __init__(self, codigo, nombre, precio, stock):
@@ -21,12 +22,3 @@ class Producto:
     def stock(self):
         return self.__stock  
         
-    # Metodos
-    def crear_producto(self):
-        pass
-    
-    def ver_producto(self):
-        pass
-    
-    def listar_productos(self):
-        pass
