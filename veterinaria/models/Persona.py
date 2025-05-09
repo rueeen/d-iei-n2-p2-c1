@@ -19,3 +19,6 @@ class Persona:
     
     def validar_rut(rut):
         return True
+    
+    def __str__(self):
+        return f'Persona: {self.rut} - {self.nombres} {self.apellidos} - {self.correo} - {self.telefono}'

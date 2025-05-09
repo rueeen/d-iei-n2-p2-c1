@@ -11,3 +11,8 @@ class Veterinario(Persona):
     def usuario(self): return self.__usuario
     @property
     def password(self): return self.__password
+    @property
+    def especialidad(self): return self.__especialidad
+    
+    def __str__(self):
+        return super().__str__() + f' - {self.especialidad}'
