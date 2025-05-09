@@ -46,6 +46,18 @@ class Conectar:
         except mysql.connector.Error as err:
             print(f'Se ha producido un error de base de datos: {err}')
     
+    def listar_con_parametros(self, sql, valores):
+        try:
+            if self.__cursor is None:
+                print('Se ha producido un error')
+                return []
+            self.__cursor.execute(sql, valores)
+            resultado = self.__cursor.fetchall()
+            return resultado
+        except mysql.connector.Error as err:
+            print(f'Se ha producido un error de base de datos: {err}')
+            return []
+    
     def listarUno(self, sql, value): # SELECT
         try:
             if self.__cursor is None:

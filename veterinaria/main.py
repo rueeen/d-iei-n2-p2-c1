@@ -1,4 +1,5 @@
 #Importar
+from dao.BloqueDAO import BloqueHorarioDAO
 from dao.VeterinarioDAO import VeterinarioDAO
 from dao.ClienteDAO import ClienteDAO
 from models.Veterinario import Veterinario
@@ -76,6 +77,17 @@ def menu_main(veterinario):
                     
                     rut_veterinario = input('Ingrese rut veterinario:\n')
                     fecha = input('Ingrese fecha de la cita:\n')
+                    
+                    bloqueDAO = BloqueHorarioDAO()
+                    bloques_disponibles = bloqueDAO.obtener_bloques_disponibles(rut_veterinario, fecha)
+
+                    if bloques_disponibles:
+                        print('Bloques disponibles:')
+                        for b in bloques_disponibles:
+                            print(f'{b.idBloque} - {b.horaInicio} a {b.horaFin}')
+                        id_bloque = int(input('Seleccione el ID del bloque:\n'))
+                    else:
+                        print('No hay bloques disponibles para esa fecha.')
                     
                 else:
                     print('Cliente no encontrado')
